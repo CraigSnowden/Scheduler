@@ -1,4 +1,5 @@
-== Scheduler
+Scheduler
+==
 
 This application is intended to make scheduling meeting rooms (or rehearsal spaces in the author's case) easier.
 
