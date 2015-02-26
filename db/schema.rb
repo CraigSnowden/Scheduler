@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150226043216) do
+ActiveRecord::Schema.define(version: 20150226044325) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -28,11 +28,31 @@ ActiveRecord::Schema.define(version: 20150226043216) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
 
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "slot_id"
+    t.integer  "status"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "bookings", ["slot_id"], name: "index_bookings_on_slot_id"
+
   create_table "rooms", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "slots", force: :cascade do |t|
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "slots", ["room_id"], name: "index_slots_on_room_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
