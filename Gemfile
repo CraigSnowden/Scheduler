@@ -35,6 +35,9 @@ gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 
 gem 'validates_overlap'
+
+gem 'foundation-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
